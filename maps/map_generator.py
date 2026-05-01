@@ -12,7 +12,7 @@ def random_blocks(rows=40, cols=40, n_obstacles=15, min_size=2, max_size=6, seed
         grid[r:r+h, c:c+w] = 1
     grid[0:2, 0:2] = 0
     grid[rows-2:rows, cols-2:cols] = 0
-    return grid
+    return gridm 
 
 def get_start_goal(grid):
     rows, cols = grid.shape
