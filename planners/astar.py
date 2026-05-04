@@ -1,5 +1,17 @@
 import heapq
 
+"""
+A* Path Planning — implemented from scratch.
+
+f(n) = g(n) + h(n)
+g(n) = exact cost from start to n
+h(n) = heuristic estimate from n to goal
+
+Guarantees shortest path when h(n) is admissible.
+"""
+
+
+
 class AStarPlanner:
     def __init__(self, heuristic=None):
         self.heuristic = heuristic or self._euclidean
