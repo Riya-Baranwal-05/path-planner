@@ -13,7 +13,7 @@ Five steps every iteration:
 """
 
 class RRTPlanner:
-    def __init__(self, step_size=1.5, max_iterations=5000, goal_sample_rate=0.1, goal_tolerance=1.5, seed=None):
+    def __init__(self, step_size=0.8, max_iterations=5000, goal_sample_rate=0.1, goal_tolerance=1.5, seed=None):
         self.step_size = step_size
         self.max_iterations = max_iterations
         self.goal_sample_rate = goal_sample_rate
@@ -22,9 +22,9 @@ class RRTPlanner:
         self.nodes_expanded = 0
 
     def plan(self, grid, start, goal):
-        rows, cols = grid.shape
-        start_pt = np.array([start[1], start[0]], dtype=float)
-        goal_pt  = np.array([goal[1],  goal[0]],  dtype=float)
+        rows, cols = grid.shape #y ,x
+        start_pt = np.array([start[1], start[0]], dtype=float) #x,y
+        goal_pt  = np.array([goal[1],  goal[0]],  dtype=float) #x,y
 
         self.nodes  = [start_pt]
         self.parent = [-1]
@@ -71,8 +71,8 @@ class RRTPlanner:
     def _collision_free(self, q_from, q_to, grid, rows, cols, n_checks=10):
         for t in np.linspace(0, 1, n_checks):
             pt  = q_from + t * (q_to - q_from)
-            col = int(np.clip(pt[0], 0, cols - 1))
-            row = int(np.clip(pt[1], 0, rows - 1))
+            col = int(round(np.clip(pt[0], 0, cols - 1)))
+            row = int(round(np.clip(pt[1], 0, rows - 1)))
             if grid[row, col] == 1:
                 return False
         return True
