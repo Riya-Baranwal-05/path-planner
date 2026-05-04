@@ -1,5 +1,17 @@
 import numpy as np
 
+
+"""
+RRT — Rapidly-exploring Random Tree
+
+Five steps every iteration:
+1. Sample  — random point in space
+2. Nearest — closest tree node
+3. Steer   — step toward sample
+4. Check   — collision free?
+5. Add     — grow the tree
+"""
+
 class RRTPlanner:
     def __init__(self, step_size=1.5, max_iterations=5000, goal_sample_rate=0.1, goal_tolerance=1.5, seed=None):
         self.step_size = step_size
