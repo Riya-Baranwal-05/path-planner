@@ -1,5 +1,15 @@
 import numpy as np
+"""
+Map Generator
 
+Creates 2D binary grids for path planning.
+    0 = free space
+    1 = obstacle
+
+Usage:
+    grid = random_blocks(seed=42)
+    start, goal = get_start_goal(grid)
+"""
 
 def random_blocks(rows=40, cols=40, n_obstacles=15, min_size=2, max_size=6, seed=None):
     rng = np.random.default_rng(seed)
