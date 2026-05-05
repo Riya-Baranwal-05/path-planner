@@ -22,6 +22,13 @@ planners/rrt.py         — RRT from scratch
 maps/map_generator.py   — random obstacle maps
 ml/heuristic_net.py     — neural heuristic (coming soon)
 
+## Limitations
+- Neural heuristic only sees position — not obstacles. 
+  Needs CNN architecture to improve.
+- RRT path is jagged — real robots would smooth it with RRT*
+- Collision check uses discrete sampling — thin obstacles can be missed
+- Grid size fixed at 40x40 — larger maps need retraining
+
 ## What I learned
 - A* is Dijkstra + a heuristic — the heuristic is everything
 - RRT's goal_sample_rate has huge effect on convergence speed
