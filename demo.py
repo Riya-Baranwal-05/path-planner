@@ -9,7 +9,7 @@ from planners.rrt import RRTPlanner
 from maps.map_generator import random_blocks, get_start_goal
 from viz.animate import plot_comparison
 
-grid = random_blocks(seed=4)
+grid = random_blocks(seed=46)
 start, goal = get_start_goal(grid)
 
 # --- A* ---
